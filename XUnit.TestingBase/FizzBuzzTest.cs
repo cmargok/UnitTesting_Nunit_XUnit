@@ -1,60 +1,52 @@
 ﻿using Base.Fundamentals;
 
-namespace NUnit.TestingBase
+namespace XUnit.TestingBase
 {
-    [TestFixture]
     public class FizzBuzzTest
     {
-
-
-        [Test]
+        [Fact]
         public void GetOuput_NumberCanBeDividedBy3_ReturnFizz()
         {
             var result = FizzBuzz.GetOutput(3);
 
-            Assert.That(result, Is.EqualTo("Fizz"));
+            Assert.Equal("Fizz", result);
 
         }
-
-        [Test]
+        [Fact]
         public void GetOuput_NumberCanBeDividedBy5_ReturnBuzz()
         {
             var result = FizzBuzz.GetOutput(5);
 
-            Assert.That(result, Is.EqualTo("Buzz"));
+            Assert.Equal("Buzz",result);
         }
 
-        [Test]
+        [Fact]
         public void GetOuput_NumberCanBeDividedBy3And5_ReturnFizzBuzz()
         {
             var result = FizzBuzz.GetOutput(15);
 
-            Assert.That(result, Is.EqualTo("FizzBuzz"));
+            Assert.Equal("FizzBuzz",result);
         }
 
 
-        [Test]
+        [Fact]
         public void GetOuput_NumberCannotBeDividedBy3Or5_ReturnNumberConvertedIntoAString()
         {
             var result = FizzBuzz.GetOutput(2);
 
-            Assert.That(result, Is.EqualTo("2"));
+            Assert.Equal("2",result);
         }
 
-
-        [Test]
-        [TestCase(3, "Fizz")]
-        [TestCase(5, "Buzz")]
-        [TestCase(15, "FizzBuzz")]
-        [TestCase(4, "4")]
+        [Theory]
+        [InlineData(3, "Fizz")]
+        [InlineData(5, "Buzz")]
+        [InlineData(15, "FizzBuzz")]
+        [InlineData(4, "4")]
         public void GetOuput_WhenIsCalled_ReturnOutput(int number, string output)
         {
             var result = FizzBuzz.GetOutput(number);
 
-            Assert.That(result, Is.EqualTo(output));
+            Assert.Equal(output, result);
         }
     }
-
-
-
 }
