@@ -1,6 +1,6 @@
 ﻿namespace Base.Fundamentals
 {
-    public class Stack<T>
+    public class StackY<T>
     {
         private readonly List<T> _list = new List<T>();
 
